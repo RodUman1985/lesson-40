@@ -32,13 +32,28 @@ btn.style.fontSize=`${fsize}px`;
 //кошки -мышки
 const mouse=document.createElement('div');
 mouse.classList.add('mouse');
+mouse.style.width='100px';
+mouse.style.height='100px';
 function cssToFloat(t){
     return parseFloat(t.substring(0,t.length-2))
 }
 const mouseWidth=cssToFloat(mouse.style.width);
-const mouseHeigth=cssToFloat(mouse.style.height)
+const mouseHeigth=cssToFloat(mouse.style.height);
+// рандом
+function hrand(start,end){
+    return Math.trunc(Math.random()*((end-start)+start))
+}
+document.body.appendChild(mouse);
+mouse.addEventListener('dblclick',()=>{
+    window.close();
+})
 setInterval(()=>{
 // получаем размер окна просмотра
 const w = document.documentElement.clientWidth;
 const h = document.documentElement.clientHeight;
+// рандомим позицию мышки
+const right = hrand(0,w-mouseWidth);
+const bottom = hrand(0,h-mouseHeigth);
+mouse.style.right=`${right}px`;
+mouse.style.bottom=`${bottom}px`;
 },1000)
