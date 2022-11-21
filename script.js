@@ -57,3 +57,7 @@ const bottom = hrand(0,h-mouseHeigth);
 mouse.style.right=`${right}px`;
 mouse.style.bottom=`${bottom}px`;
 },1000)
+//mousemoove
+function changeColor(color){
+    document.body.style.background = color;
+}
